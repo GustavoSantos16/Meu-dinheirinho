@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-icon name="arrow-back" style="font-size: 22px; float: left; margin-left: 12px;" (click)="back()"></ion-icon>
+    <ion-title>Adicionar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <div class="form_conta">
+  <label for="nome">Titulo da conta*</label>
+  <ion-input id="nome" placeholder="Escreva o titulo da conta/cartão" name="nome" [(ngModel)]="dados.nome"></ion-input>
+
+  <label for="saldo">Saldo da conta*</label>
+  <ion-input id="saldo" placeholder="R$" type="tel" [(ngModel)]="dados.saldo" [brmasker]="{money: true, thousand: '.',  decimalCaracter: ','}"></ion-input>
+
+  <button (click)="cadastrar()">Cadastrar</button>
+  
+
+  </div>
+
+  
+
+</ion-content>

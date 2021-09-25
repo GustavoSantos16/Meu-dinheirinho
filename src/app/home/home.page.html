@@ -1,20 +1,35 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Meu Saldo
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <img src="../../assets/icon/pica-pau.png" alt="" width="170" height="170" style="position: absolute; left: 10;">
+  <div class="boxsaldo">
+    <strong>R${{saldo}}</strong>
+    <span>Meu saldo atual</span>
   </div>
+  
+
+  <div class="lista-contas" *ngIf="contas != ''">
+    <h6>Minhas contas</h6>
+    <ul>
+      <li *ngFor="let item of contas" (click)="openAccount(item.id)">
+        <span>{{item.nome}}</span> 
+        <strong>R${{item.saldo}}</strong>
+      </li>
+    </ul>
+  </div>
+
+  <!-- <button (click)="clear()">zerar App</button> -->
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" color="primary">
+    <ion-fab-button (click)="openPage()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
 </ion-content>
